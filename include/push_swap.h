@@ -6,7 +6,7 @@
 /*   By: rwassim <rwassim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 11:52:23 by rwassim           #+#    #+#             */
-/*   Updated: 2025/05/17 12:23:58 by rwassim          ###   ########.fr       */
+/*   Updated: 2025/05/17 16:12:44 by rwassim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_stack
 {
 	int				value;
 	struct s_stack	*next;
-}	           t_stack;
+}				t_stack;
 
 const char	*trim_whitespace(const char *str);
 t_stack		*init_stack(int ac, char **av);
