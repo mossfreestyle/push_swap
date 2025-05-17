@@ -5,25 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwassim <rwassim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16 13:41:30 by rwassim           #+#    #+#             */
-/*   Updated: 2025/05/17 10:22:42 by rwassim          ###   ########.fr       */
+/*   Created: 2024/04/19 12:20:46 by oprosvir          #+#    #+#             */
+/*   Updated: 2025/05/17 15:49:47 by rwassim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include <push_swap.h>
+#include "push_swap.h"
 
-int ft_abs(int num)
+int	ft_abs(int num)
 {
 	if (num < 0)
 		return (-num);
 	return (num);
 }
 
-int rotation_cost(int size, int pos)
+int	rotation_cost(int size, int pos)
 {
-	int forward;
-	int reverse;
+	int	forward;
+	int	reverse;
 
 	forward = pos;
 	reverse = size - pos;
@@ -33,9 +32,9 @@ int rotation_cost(int size, int pos)
 		return (-reverse);
 }
 
-int find_index(t_stack *stack, int value)
+int	find_index(t_stack *stack, int value)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (stack->value != value)
@@ -46,9 +45,9 @@ int find_index(t_stack *stack, int value)
 	return (i);
 }
 
-int max_value(t_stack *stack)
+int	max_value(t_stack *stack)
 {
-	int max;
+	int	max;
 
 	max = stack->value;
 	while (stack)
@@ -60,9 +59,9 @@ int max_value(t_stack *stack)
 	return (max);
 }
 
-int min_value(t_stack *stack)
+int	min_value(t_stack *stack)
 {
-	int min;
+	int	min;
 
 	min = stack->value;
 	while (stack)

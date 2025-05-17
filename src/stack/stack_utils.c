@@ -5,17 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwassim <rwassim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/15 16:32:43 by rwassim           #+#    #+#             */
-/*   Updated: 2025/05/17 10:24:15 by rwassim          ###   ########.fr       */
+/*   Created: 2024/03/20 22:44:47 by oprosvir          #+#    #+#             */
+/*   Updated: 2025/05/17 15:50:07 by rwassim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include <push_swap.h>
+#include "libft.h"
+#include "push_swap.h"
 
-t_stack *stack_new_node(int content)
+t_stack	*stack_new_node(int content)
 {
-	t_stack *new_node;
+	t_stack	*new_node;
 
 	new_node = (t_stack *)malloc(sizeof(t_stack));
 	if (!new_node)
@@ -25,7 +25,7 @@ t_stack *stack_new_node(int content)
 	return (new_node);
 }
 
-void    stack_add_top(t_stack **lst, t_stack *new_node)
+void	stack_add_top(t_stack **lst, t_stack *new_node)
 {
 	if (new_node)
 	{
@@ -34,7 +34,7 @@ void    stack_add_top(t_stack **lst, t_stack *new_node)
 	}
 }
 
-t_stack *stack_get_last(t_stack *lst)
+t_stack	*stack_get_last(t_stack *lst)
 {
 	if (lst == NULL)
 		return (NULL);
@@ -43,9 +43,9 @@ t_stack *stack_get_last(t_stack *lst)
 	return (lst);
 }
 
-int stack_size(t_stack *stack)
+int	stack_size(t_stack *stack)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (stack)

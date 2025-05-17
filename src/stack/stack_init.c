@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwassim <rwassim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/15 16:56:12 by rwassim           #+#    #+#             */
-/*   Updated: 2025/05/17 10:24:05 by rwassim          ###   ########.fr       */
+/*   Created: 2024/03/20 22:43:06 by oprosvir          #+#    #+#             */
+/*   Updated: 2025/05/17 15:50:04 by rwassim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include <push_swap.h>
+#include "libft.h"
+#include "push_swap.h"
 
-static int  has_duplicate(t_stack *stack, int value)
+static int	has_duplicate(t_stack *stack, int value)
 {
 	while (stack != NULL)
 	{
@@ -24,11 +24,11 @@ static int  has_duplicate(t_stack *stack, int value)
 	return (0);
 }
 
-static int  add_nbr_to_stack(t_stack **stack, const char *str)
+static int	add_number_to_stack(t_stack **stack, const char *str)
 {
-	int value;
-	int error;
-	t_stack *new_node;
+	int		value;
+	int		error;
+	t_stack	*new_node;
 
 	error = 0;
 	value = parse_arg(str, &error);
@@ -41,49 +41,49 @@ static int  add_nbr_to_stack(t_stack **stack, const char *str)
 	return (0);
 }
 
-static void fill_stack_from_string(t_stack **stack, char *str)
+static void	fill_stack_from_string(t_stack **stack, char *str)
 {
-	char    **nbr;
-	int i;
+	char	**numbers;
+	int		i;
 
-	nbr = ft_split(str, ' ');
-	if (!nbr)
+	numbers = ft_split(str, ' ');
+	if (!numbers)
 		exit_error(*stack);
 	i = 0;
-	while (nbr[i] != NULL)
+	while (numbers[i] != NULL)
 		i++;
 	while (i > 0)
 	{
 		i--;
-		if (add_nbr_to_stack(stack, nbr[i] == -1))
+		if (add_number_to_stack(stack, numbers[i]) == -1)
 		{
-			free(nbr[i]);
-			nbr[i] = NULL;
-			exit_cleanup(*stack, nbr);
+			free(numbers[i]);
+			numbers[i] = NULL;
+			exit_cleanup(*stack, numbers);
 		}
-		free(nbr[i]);
+		free(numbers[i]);
 	}
-	free(nbr);
+	free(numbers);
 }
 
-t_stack *init_stack(int ac, char **av)
+t_stack	*init_stack(int argc, char *argv[])
 {
-	t_stack *stack;
-	int i;
-	
+	t_stack	*stack;
+	int		i;
+
 	stack = NULL;
-	if (ac == 2)
+	if (argc == 2)
 	{
-		if (av[1] == NULL || trim_whitespace(av[1]) == '\0')
+		if (argv[1] == NULL || *trim_whitespace(argv[1]) == '\0')
 			exit_error(stack);
-		fill_stack_from_string(&stack, av[1]);
+		fill_stack_from_string(&stack, argv[1]);
 	}
 	else
 	{
-		i = ac - 1;
+		i = argc - 1;
 		while (i > 0)
 		{
-			if (add_nbr_to_stack(&stack, av[i]) == -1)
+			if (add_number_to_stack(&stack, argv[i]) == -1)
 				exit_error(stack);
 			i--;
 		}

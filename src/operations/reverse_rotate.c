@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwassim <rwassim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/15 14:04:48 by rwassim           #+#    #+#             */
-/*   Updated: 2025/05/17 10:23:15 by rwassim          ###   ########.fr       */
+/*   Created: 2024/03/29 12:01:36 by oprosvir          #+#    #+#             */
+/*   Updated: 2025/05/17 15:49:28 by rwassim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include <push_swap.h>
+#include "libft.h"
+#include "push_swap.h"
 
-static void reverse_rotate(t_stack **stack)
+static void	reverse_rotate(t_stack **stack)
 {
-	t_stack *last;
-	t_stack *second_to_last;
+	t_stack	*last;
+	t_stack	*second_to_last;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return ;
@@ -32,22 +32,21 @@ static void reverse_rotate(t_stack **stack)
 	*stack = last;
 }
 
-void    rra(t_stack **stack_a)
+void	rra(t_stack **stack_a)
 {
 	reverse_rotate(stack_a);
 	ft_putstr_fd("rra\n", 1);
 }
 
-void    rrb(t_stack **stack_b)
+void	rrb(t_stack **stack_b)
 {
 	reverse_rotate(stack_b);
 	ft_putstr_fd("rrb\n", 1);
 }
 
-void    rrr(t_stack **stack_a, t_stack **stack_b)
+void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
 	ft_putstr_fd("rrr\n", 1);
 }
-

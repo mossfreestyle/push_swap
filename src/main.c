@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include <push_swap.h>
+#include "libft.h"
+#include "push_swap.h"
 
-int is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
 	while (stack && stack->next)
 	{
@@ -24,13 +24,13 @@ int is_sorted(t_stack *stack)
 	return (1);
 }
 
-int main(int ac, char **av)
+int	main(int argc, char *argv[])
 {
-	t_stack *stack_a;
+	t_stack	*stack_a;
 
-	if (ac < 2)
+	if (argc < 2)
 		exit(EXIT_FAILURE);
-	stack_a = init_stack(ac, av);
+	stack_a = init_stack(argc, argv);
 	if (stack_a && !is_sorted(stack_a))
 		sort_stack(&stack_a);
 	free_stack(stack_a);

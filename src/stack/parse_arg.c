@@ -5,24 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rwassim <rwassim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16 10:33:10 by rwassim           #+#    #+#             */
-/*   Updated: 2025/05/17 10:23:50 by rwassim          ###   ########.fr       */
+/*   Created: 2024/04/25 23:58:32 by oprosvir          #+#    #+#             */
+/*   Updated: 2025/05/17 15:49:57 by rwassim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include <push_swap.h>
+#include "push_swap.h"
 
-const char  *trim_whitespace(const char *str)
+const char	*trim_whitespace(const char *str)
 {
 	while ((*str >= 9 && *str <= 13) || *str == ' ')
 		str++;
 	return (str);
 }
 
-static long parse_long(const char *str, int sign, int *error)
+static long	parse_long(const char *str, int sign, int *error)
 {
-	long    res;
+	long	res;
 
 	res = 0;
 	while (*str >= '0' && *str <= '9')
@@ -43,10 +42,10 @@ static long parse_long(const char *str, int sign, int *error)
 	return (res);
 }
 
-int parse_arg(const char *str, int *error)
+int	parse_arg(const char *str, int *error)
 {
-	long    res;
-	int sign;
+	long	res;
+	int		sign;
 
 	sign = 1;
 	str = trim_whitespace(str);
